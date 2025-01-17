@@ -68,5 +68,11 @@ nav a.current {
     border-color: var(--color-accent);
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1rem;
+}
+
   
   
