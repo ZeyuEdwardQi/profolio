@@ -74,5 +74,16 @@ nav a.current {
   gap: 1rem;
 }
 
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid; 
+  grid-row: span 3; 
+  gap: 1rem;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
   
   
