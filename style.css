@@ -15,6 +15,8 @@ body {
     padding: 1rem;
     accent-color: var(--color-accent);
     font: 100%/1.5 system-ui;
+    background-color: #f4f4f9; /* Light background */
+    color: #333; /* Main text color */
 }
 
 form {
@@ -105,4 +107,36 @@ h3 {
   font-size: 1.5rem; 
   margin-bottom: 0.5rem; 
 }  
-  
+
+section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.personal-info p {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+.personal-info p strong {
+  color: var(--color-accent);
+}
+
+/* Time formatting */
+time {
+  font-style: italic;
+  color: #777;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  color: #777;
+}
