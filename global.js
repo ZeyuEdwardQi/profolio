@@ -24,7 +24,7 @@ function setupNavigation() {
       <nav>
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="../projects/index.html">Projects</a></li>
+          <li><a href="/projects/index.html">Projects</a></li>
           <li><a href="index.html">Contact</a></li>
           <li><a href="https://github.com/zeyuedwardqi" target="_blank">GitHub Profile</a></li>
           <li><a href="../cv/index.html">CV</a></li>
