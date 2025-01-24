@@ -20,17 +20,28 @@ function $$(selector, context = document) {
 // Function to add the navigation menu and highlight the current link
 function setupNavigation() {
     // Define the navigation menu HTML
+    // const navHTML = `
+    //   <nav>
+    //     <ul>
+    //       <li><a href="../index.html">Home</a></li>
+    //       <li><a href="../projects/index.html">Projects</a></li>
+    //       <li><a href="../contact/index.html">Contact</a></li>
+    //       <li><a href="https://github.com/zeyuedwardqi" target="_blank">GitHub Profile</a></li>
+    //       <li><a href="../cv/index.html">CV</a></li>
+    //     </ul>
+    //   </nav>
+    // `;
     const navHTML = `
-      <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../projects/index.html">Projects</a></li>
-          <li><a href="../contact/index.html">Contact</a></li>
-          <li><a href="https://github.com/zeyuedwardqi" target="_blank">GitHub Profile</a></li>
-          <li><a href="../cv/index.html">CV</a></li>
-        </ul>
-      </nav>
-    `;
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/projects/index.html">Projects</a></li>
+      <li><a href="/contact/index.html">Contact</a></li>
+      <li><a href="https://github.com/zeyuedwardqi" target="_blank">GitHub Profile</a></li>
+      <li><a href="/cv/index.html">CV</a></li>
+    </ul>
+  </nav>
+`;
   
     // Insert the navigation menu into the body
     document.body.insertAdjacentHTML('afterbegin', navHTML);
