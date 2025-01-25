@@ -80,32 +80,62 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 
+// for (let p of pages) {
+//     let url = p.url;
+  
+//     // Adjust the URL if not on the home page and it's a relative link
+//     if (!ARE_WE_HOME && !url.startsWith('http')) {
+//       url = '../' + url;
+//     }
+  
+//     // Create the <a> element
+//   let a = document.createElement('a');
+//   a.href = url;
+//   a.textContent = p.title;
+
+//   // If it's an external link, open in a new tab
+//   if (url.startsWith('http')) {
+//     a.setAttribute('target', '_blank');
+//     a.setAttribute('rel', 'noopener noreferrer');
+//   }
+
+//   // Highlight the current page
+//   if (window.location.pathname.endsWith(p.url)) {
+//     a.classList.add('current');
+//   }
+
+//   // Append the link to the navigation
+//   nav.append(a);
+// }
+
 for (let p of pages) {
     let url = p.url;
   
-    // Adjust the URL if not on the home page and it's a relative link
-    if (!ARE_WE_HOME && !url.startsWith('http')) {
-      url = '../' + url;
+    // Prepend BASE_PATH to relative URLs
+    if (!url.startsWith('http')) {
+      url = BASE_PATH + url;
     }
   
     // Create the <a> element
-  let a = document.createElement('a');
-  a.href = url;
-  a.textContent = p.title;
-
-  // If it's an external link, open in a new tab
-  if (url.startsWith('http')) {
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener noreferrer');
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = p.title;
+  
+    // If it's an external link, open in a new tab
+    if (url.startsWith('http')) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  
+    // Highlight the current page
+    if (window.location.pathname === (BASE_PATH + p.url)) {
+      a.classList.add('current');
+    }
+  
+    // Append the link to the navigation
+    nav.append(a);
   }
+  
 
-  // Highlight the current page
-  if (window.location.pathname.endsWith(p.url)) {
-    a.classList.add('current');
-  }
-
-  // Append the link to the navigation
-  nav.append(a);
-}
 
 console.log("Navigation menu setup complete");
