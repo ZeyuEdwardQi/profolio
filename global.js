@@ -80,34 +80,6 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 
-// for (let p of pages) {
-//     let url = p.url;
-  
-//     // Adjust the URL if not on the home page and it's a relative link
-//     if (!ARE_WE_HOME && !url.startsWith('http')) {
-//       url = '../' + url;
-//     }
-  
-//     // Create the <a> element
-//   let a = document.createElement('a');
-//   a.href = url;
-//   a.textContent = p.title;
-
-//   // If it's an external link, open in a new tab
-//   if (url.startsWith('http')) {
-//     a.setAttribute('target', '_blank');
-//     a.setAttribute('rel', 'noopener noreferrer');
-//   }
-
-//   // Highlight the current page
-//   if (window.location.pathname.endsWith(p.url)) {
-//     a.classList.add('current');
-//   }
-
-//   // Append the link to the navigation
-//   nav.append(a);
-// }
-
 for (let p of pages) {
     let url = p.url;
   
@@ -122,17 +94,23 @@ for (let p of pages) {
     a.textContent = p.title;
   
     // If it's an external link, open in a new tab
-    if (url.startsWith('http')) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
+    // if (url.startsWith('http')) {
+    //   a.setAttribute('target', '_blank');
+    //   a.setAttribute('rel', 'noopener noreferrer');
+    // }
+    a.toggleAttribute('target', a.host !== location.host);
+    a.toggleAttribute('rel', a.host !== location.host && a.target === '_blank');
   
     // Highlight the current page
-    const fullPath = window.location.pathname;
-    const expectedPath = BASE_PATH + p.url;
-    if (fullPath === expectedPath || (ARE_WE_HOME && fullPath === BASE_PATH)) {
-        a.classList.add('current');
-    }
+    // const fullPath = window.location.pathname;
+    // const expectedPath = BASE_PATH + p.url;
+    // if (fullPath === expectedPath || (ARE_WE_HOME && fullPath === BASE_PATH)) {
+    //     a.classList.add('current');
+    // }
+    a.classList.toggle(
+        'current',
+        a.host === location.host && a.pathname === location.pathname
+    );
   
     // Append the link to the navigation
     nav.append(a);
