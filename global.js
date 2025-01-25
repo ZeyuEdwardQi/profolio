@@ -146,29 +146,75 @@ document.body.insertAdjacentHTML(
   `
   );
   
-  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-  function updateTheme(theme) {
+function updateTheme(theme) {
+const root = document.documentElement;
+
+if (theme === "light") {
+    root.style.colorScheme = "light";
+} else if (theme === "dark") {
+    root.style.colorScheme = "dark";
+} else {
+    root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
+}
+
+localStorage.setItem("theme", theme);
+}
+
+document.getElementById("color-scheme-selector").addEventListener("change", (e) => {
+updateTheme(e.target.value);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+const savedTheme = localStorage.getItem("theme") || "auto";
+const themeSelector = document.getElementById("color-scheme-selector");
+themeSelector.value = savedTheme;
+updateTheme(savedTheme);
+});
+
+// Add the theme switcher dropdown dynamically
+document.body.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <label class="color-scheme">
+      Theme:
+      <select id="color-scheme-selector">
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+  `
+);
+
+const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+
+// Function to update the theme
+function updateTheme(theme) {
     const root = document.documentElement;
-  
+
+    // Apply the selected theme
     if (theme === "light") {
-      root.style.colorScheme = "light";
+        root.style.colorScheme = "light";
     } else if (theme === "dark") {
-      root.style.colorScheme = "dark";
+        root.style.colorScheme = "dark";
     } else {
-      root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
+        root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
     }
-  
-    localStorage.setItem("theme", theme);
-  }
-  
-  document.getElementById("color-scheme-selector").addEventListener("change", (e) => {
-    updateTheme(e.target.value);
-  });
-  
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "auto";
-    const themeSelector = document.getElementById("color-scheme-selector");
-    themeSelector.value = savedTheme;
+
+    // Save the theme preference to localStorage
+    localStorage.setItem("colorScheme", theme);
+}
+
+// On page load, retrieve the saved theme or default to "light dark" (Automatic)
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("colorScheme") || "light dark";
+    document.getElementById("color-scheme-selector").value = savedTheme;
     updateTheme(savedTheme);
-  });
+});
+
+// Listen for changes in the dropdown and update the theme
+document.getElementById("color-scheme-selector").addEventListener("input", (e) => {
+    updateTheme(e.target.value);
+});
