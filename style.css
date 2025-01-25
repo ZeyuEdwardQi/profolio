@@ -8,7 +8,13 @@
 
 :root {
     --color-accent: oklch(65% 50% 0);
+    --border-color: oklch(50% 10% 200 / 40%);
 }
+
+:root {
+  color-scheme: light dark;
+}
+
 body {
     max-width: 100ch;
     margin: 0 auto;
@@ -46,6 +52,7 @@ nav {
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid oklch(80% 3% 200);
+    background-color: canvas;
 }
 
 nav ul, nav ul li {
@@ -62,11 +69,12 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom-color: var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 nav a.current {
     background-color: var(--color-accent);
+    color: canvastext;
     border-color: var(--color-accent);
 }
 
@@ -109,8 +117,8 @@ h3 {
 }  
 
 section {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: canvas;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
