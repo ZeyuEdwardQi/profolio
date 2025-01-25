@@ -187,3 +187,22 @@ footer {
   margin-top: 2rem;
   color: #777;
 }
+
+
+.color-scheme {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: canvastext;
+}
+
+.color-scheme select {
+  padding: 0.25rem;
+  font: inherit;
+  background-color: canvas;
+  color: canvastext;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
