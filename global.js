@@ -146,32 +146,32 @@ document.body.insertAdjacentHTML(
   `
   );
   
-const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+// const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-function updateTheme(theme) {
-const root = document.documentElement;
+// function updateTheme(theme) {
+// const root = document.documentElement;
 
-if (theme === "light") {
-    root.style.colorScheme = "light";
-} else if (theme === "dark") {
-    root.style.colorScheme = "dark";
-} else {
-    root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
-}
+// if (theme === "light") {
+//     root.style.colorScheme = "light";
+// } else if (theme === "dark") {
+//     root.style.colorScheme = "dark";
+// } else {
+//     root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
+// }
 
-localStorage.setItem("theme", theme);
-}
+// localStorage.setItem("theme", theme);
+// }
 
-document.getElementById("color-scheme-selector").addEventListener("change", (e) => {
-updateTheme(e.target.value);
-});
+// document.getElementById("color-scheme-selector").addEventListener("change", (e) => {
+// updateTheme(e.target.value);
+// });
 
-window.addEventListener("DOMContentLoaded", () => {
-const savedTheme = localStorage.getItem("theme") || "auto";
-const themeSelector = document.getElementById("color-scheme-selector");
-themeSelector.value = savedTheme;
-updateTheme(savedTheme);
-});
+// window.addEventListener("DOMContentLoaded", () => {
+// const savedTheme = localStorage.getItem("theme") || "auto";
+// const themeSelector = document.getElementById("color-scheme-selector");
+// themeSelector.value = savedTheme;
+// updateTheme(savedTheme);
+// });
 
 // Add the theme switcher dropdown dynamically
 document.body.insertAdjacentHTML(
