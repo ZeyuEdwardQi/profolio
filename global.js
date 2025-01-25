@@ -94,12 +94,12 @@ for (let p of pages) {
     a.textContent = p.title;
   
     // If it's an external link, open in a new tab
-    // if (url.startsWith('http')) {
-    //   a.setAttribute('target', '_blank');
-    //   a.setAttribute('rel', 'noopener noreferrer');
-    // }
-    a.toggleAttribute('target', a.host !== location.host);
-    a.toggleAttribute('rel', a.host !== location.host && a.target === '_blank');
+    if (url.startsWith('http')) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+    // a.toggleAttribute('target', a.host !== location.host);
+    // a.toggleAttribute('rel', a.host !== location.host && a.target === '_blank');
   
     // Highlight the current page
     // const fullPath = window.location.pathname;
@@ -107,10 +107,20 @@ for (let p of pages) {
     // if (fullPath === expectedPath || (ARE_WE_HOME && fullPath === BASE_PATH)) {
     //     a.classList.add('current');
     // }
-    a.classList.toggle(
-        'current',
-        a.host === location.host && a.pathname === location.pathname
-    );
+
+    // a.classList.toggle(
+    //     'current',
+    //     a.host === location.host && a.pathname === location.pathname
+    // );
+
+    const fullPath = window.location.pathname.endsWith("/")
+        ? window.location.pathname
+        : window.location.pathname + "/";
+    const expectedPath = (BASE_PATH + p.url).endsWith("/")
+        ? BASE_PATH + p.url
+        : BASE_PATH + p.url + "/";
+
+    a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
   
     // Append the link to the navigation
     nav.append(a);
@@ -128,7 +138,7 @@ document.body.insertAdjacentHTML(
     <label class="color-scheme">
       Theme:
       <select id="color-scheme-selector">
-        <option value="light dark">Automatic</option>
+        <option value="auto">Automatic</option>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
       </select>
@@ -158,6 +168,7 @@ document.body.insertAdjacentHTML(
   
   window.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "auto";
-    document.getElementById("color-scheme-selector").value = savedTheme;
+    const themeSelector = document.getElementById("color-scheme-selector");
+    themeSelector.value = savedTheme;
     updateTheme(savedTheme);
   });
