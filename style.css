@@ -190,19 +190,14 @@ footer {
 
 
 .color-scheme {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: canvastext;
+  position: absolute; /* Take it out of the normal document flow */
+  top: 1rem; /* Distance from the top of the page */
+  right: 1rem; /* Distance from the right edge of the page */
+  font-size: 80%; /* Make the font size slightly smaller */
+  font-family: inherit; /* Ensure it matches the site's font */
+  z-index: 1000; /* Ensure it's on top of other content */
 }
 
 .color-scheme select {
-  padding: 0.25rem;
-  font: inherit;
-  background-color: canvas;
-  color: canvastext;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  font: inherit; /* Inherit font styling from parent */
 }
