@@ -1,8 +1,8 @@
 console.log('IT’S ALIVE!');
 
-function $$(selector, context = document) {
-  return Array.from(context.querySelectorAll(selector));
-}
+// function $$(selector, context = document) {
+//   return Array.from(context.querySelectorAll(selector));
+// }
 
 // // Get all nav links
 // const navLinks = $$("nav a");
@@ -63,7 +63,7 @@ function $$(selector, context = document) {
 //   // Call the function to set up navigation
 //   setupNavigation();
 
-
+const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Define the pages for the navigation menu
 const pages = [
@@ -77,7 +77,6 @@ const pages = [
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
-const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 for (let p of pages) {
     let url = p.url;
@@ -96,3 +95,5 @@ for (let p of pages) {
       links[links.length - 1].classList.add('current');
     }
   }
+
+console.log("Navigation menu setup complete");
