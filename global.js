@@ -113,12 +113,17 @@ for (let p of pages) {
     //     a.host === location.host && a.pathname === location.pathname
     // );
 
-    const fullPath = window.location.pathname.endsWith("/")
-        ? window.location.pathname
-        : window.location.pathname + "/";
-    const expectedPath = (BASE_PATH + p.url).endsWith("/")
-        ? BASE_PATH + p.url
-        : BASE_PATH + p.url + "/";
+    // const fullPath = window.location.pathname.endsWith("/")
+    //     ? window.location.pathname
+    //     : window.location.pathname + "/";
+    // const expectedPath = (BASE_PATH + p.url).endsWith("/")
+    //     ? BASE_PATH + p.url
+    //     : BASE_PATH + p.url + "/";
+
+    // a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
+
+    const fullPath = window.location.pathname.replace(/\/+$/, ""); // Remove trailing slashes
+    const expectedPath = (BASE_PATH + p.url).replace(/\/+$/, ""); // Remove trailing slashes
 
     a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
   
