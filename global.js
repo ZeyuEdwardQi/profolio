@@ -128,8 +128,10 @@ for (let p of pages) {
     }
   
     // Highlight the current page
-    if (window.location.pathname === (BASE_PATH + p.url)) {
-      a.classList.add('current');
+    const fullPath = window.location.pathname;
+    const expectedPath = BASE_PATH + p.url;
+    if (fullPath === expectedPath || (ARE_WE_HOME && fullPath === BASE_PATH)) {
+        a.classList.add('current');
     }
   
     // Append the link to the navigation
