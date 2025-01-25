@@ -33,12 +33,22 @@ form {
   margin: 0 auto;
 }
 
-input, textarea, button {
+/* input, textarea, button {
   font: inherit;
-  /* display: block; */
   width: 100%;
   box-sizing: border-box;
   grid-column: 1 / -1;
+} */
+input, textarea, button {
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+  background-color: canvas;
+  color: canvastext;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 label {
@@ -48,25 +58,40 @@ label {
   margin-block: 0.5rem; 
 }
 
-nav {
+/* nav {
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid oklch(80% 3% 200);
     background-color: canvas;
+} */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: canvas;
 }
 
 nav ul, nav ul li {
     display: contents;
 }
 
-nav a {
+/* nav a {
     flex: 1;
     text-decoration: none;
     color: inherit;
     text-align: center;
     padding: 0.5rem;
-
-}
+} */
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 2px solid transparent;
+} 
 
 nav a:hover {
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
@@ -76,6 +101,7 @@ nav a.current {
     background-color: var(--color-accent);
     color: canvastext;
     border-color: var(--color-accent);
+    font-weight: bold;
 }
 
 .projects {
