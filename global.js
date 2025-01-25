@@ -131,20 +131,20 @@ for (let p of pages) {
 console.log("Navigation menu setup complete");
 
 
-// Add the theme switcher dropdown dynamically
-document.body.insertAdjacentHTML(
-    "afterbegin",
-    `
-    <label class="color-scheme">
-      Theme:
-      <select id="color-scheme-selector">
-        <option value="auto">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>
-  `
-  );
+// // Add the theme switcher dropdown dynamically
+// document.body.insertAdjacentHTML(
+//     "afterbegin",
+//     `
+//     <label class="color-scheme">
+//       Theme:
+//       <select id="color-scheme-selector">
+//         <option value="auto">Automatic</option>
+//         <option value="light">Light</option>
+//         <option value="dark">Dark</option>
+//       </select>
+//     </label>
+//   `
+//   );
   
 // const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
