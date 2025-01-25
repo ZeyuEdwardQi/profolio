@@ -128,7 +128,7 @@ document.body.insertAdjacentHTML(
     <label class="color-scheme">
       Theme:
       <select id="color-scheme-selector">
-        <option value="auto">Automatic</option>
+        <option value="light dark">Automatic</option>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
       </select>
@@ -136,34 +136,3 @@ document.body.insertAdjacentHTML(
   `
   );
   
-  // Detects current OS color scheme
-  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-  
-  // Update the theme based on the selected value
-  function updateTheme(theme) {
-    const root = document.documentElement;
-  
-    if (theme === "light") {
-      root.style.colorScheme = "light";
-    } else if (theme === "dark") {
-      root.style.colorScheme = "dark";
-    } else {
-      root.style.colorScheme = prefersDarkMode.matches ? "dark" : "light";
-    }
-  
-    // Save the selected theme in localStorage
-    localStorage.setItem("theme", theme);
-  }
-  
-  // Event listener for dropdown
-  document.getElementById("color-scheme-selector").addEventListener("change", (e) => {
-    updateTheme(e.target.value);
-  });
-  
-  // Apply saved theme on load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "auto";
-    document.getElementById("color-scheme-selector").value = savedTheme;
-    updateTheme(savedTheme);
-  });
-s  
