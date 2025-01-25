@@ -63,6 +63,8 @@ console.log('IT’S ALIVE!');
 //   // Call the function to set up navigation
 //   setupNavigation();
 
+const BASE_PATH = "/profolio/";
+
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Define the pages for the navigation menu
@@ -86,14 +88,24 @@ for (let p of pages) {
       url = '../' + url;
     }
   
-    // Add the link to the nav
-    nav.insertAdjacentHTML('beforeend', `<a href="${url}">${p.title}</a>`);
-  
-    // Highlight the current page
-    if (window.location.pathname.endsWith(p.url)) {
-      const links = nav.querySelectorAll('a');
-      links[links.length - 1].classList.add('current');
-    }
+    // Create the <a> element
+  let a = document.createElement('a');
+  a.href = url;
+  a.textContent = p.title;
+
+  // If it's an external link, open in a new tab
+  if (url.startsWith('http')) {
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
   }
+
+  // Highlight the current page
+  if (window.location.pathname.endsWith(p.url)) {
+    a.classList.add('current');
+  }
+
+  // Append the link to the navigation
+  nav.append(a);
+}
 
 console.log("Navigation menu setup complete");
