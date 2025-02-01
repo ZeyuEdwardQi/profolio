@@ -1,13 +1,12 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
 const projects = await fetchJSON('../lib/projects.json');
-
 const projectsContainer = document.querySelector('.projects');
 
-renderProjects(projects, projectsContainer, 'h2');
+// renderProjects(projects, projectsContainer, 'h2');
 
-// Select the title element
-const projectsTitle = document.querySelector('.projects-title');
+// // Select the title element
+// const projectsTitle = document.querySelector('.projects-title');
 
 // Function to update the project count
 function updateProjectCount(projects) {
