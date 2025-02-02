@@ -16,7 +16,7 @@ const projectsTitle = document.querySelector('.projects-title');
 // }
 
 // Fetch the JSON and render projects
-fetchJSON("https://github.com/ZeyuEdwardQi/profolio/blob/main/lib/projects.json").then(projects => {
+fetchJSON("https://raw.githubusercontent.com/ZeyuEdwardQi/profolio/main/lib/projects.json").then(projects => {
     console.log("✅ Checking projects:", projects);  // Debugging line
     console.log("🔍 Type of projects:", typeof projects); // Check type
     if (!Array.isArray(projects)) {
