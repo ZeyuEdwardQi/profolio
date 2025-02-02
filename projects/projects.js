@@ -16,7 +16,7 @@ function updateProjectCount(projects) {
 }
 
 // Fetch the JSON and render projects
-fetchJSON("../lib/projects.json").then(projects => {
+fetchJSON("https://github.com/ZeyuEdwardQi/profolio/blob/main/lib/projects.json").then(projects => {
     console.log("✅ Checking projects:", projects);  // Debugging line
     console.log("🔍 Type of projects:", typeof projects); // Check type
     if (!Array.isArray(projects)) {
