@@ -1,4 +1,5 @@
 import { fetchJSON, renderProjects } from '../global.js';
+import { fetchJSON, renderProjects } from '../global.js';
 
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
@@ -17,6 +18,7 @@ function updateProjectCount(projects) {
 
 // Fetch the JSON and render projects
 fetchJSON("../lib/projects.json").then(projects => {
+
     const container = document.querySelector(".projects");
     if (container) {
         container.innerHTML = ""; // Clear previous content
