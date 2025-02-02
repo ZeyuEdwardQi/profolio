@@ -245,50 +245,96 @@ export async function fetchJSON(url) {
 }
 
 
-export function renderProjects(projects, containerElement, headingLevel = "h2") {
+// export function renderProjects(projects, containerElement, headingLevel = "h2") {
+//   // Ensure the container element exists
+//   if (!containerElement || !(containerElement instanceof HTMLElement)) {
+//       console.error("Invalid container element provided");
+//       return;
+//   }
+
+//   // Validate heading level (must be h1-h6)
+//   const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
+//   if (!validHeadings.includes(headingLevel)) {
+//       console.warn(`Invalid heading level: "${headingLevel}". Defaulting to "h2".`);
+//       headingLevel = "h2";
+//   }
+
+//   // Clear previous content to avoid duplication
+//   containerElement.innerHTML = '';
+
+//   // Loop through each project and create an article for it
+//   projects.forEach(project => {
+//       const article = document.createElement("article");
+
+//       // Ensure data integrity and provide fallbacks for missing values
+//       const title = project.title || "Untitled Project";
+//       const imageSrc = project.image || "default-image.png"; // Placeholder image
+//       const imageAlt = project.title || "Project image"; // Use title as alt text
+//       const description = project.description || "No description available.";
+
+//       // Create the heading dynamically
+//       const heading = document.createElement(headingLevel);
+//       heading.textContent = title;
+
+//       // Populate the article
+//       article.appendChild(heading);
+//       article.innerHTML += `
+//           <img src="${imageSrc}" alt="${imageAlt}">
+//           <p>${description}</p>
+//       `;
+
+//       // Append article to the container safely
+//       containerElement.appendChild(article);
+//   });
+// }
+
+// export async function fetchGitHubData(username) {
+//   return fetchJSON(`https://api.github.com/users/${username}`);
+// }
+
+export function renderProjects(project, containerElement, headingLevel = "h2") {
   // Ensure the container element exists
   if (!containerElement || !(containerElement instanceof HTMLElement)) {
-      console.error("Invalid container element provided");
+      console.error("❌ Invalid container element provided", containerElement);
       return;
   }
 
   // Validate heading level (must be h1-h6)
   const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
   if (!validHeadings.includes(headingLevel)) {
-      console.warn(`Invalid heading level: "${headingLevel}". Defaulting to "h2".`);
+      console.warn(`⚠️ Invalid heading level: "${headingLevel}". Defaulting to "h2".`);
       headingLevel = "h2";
   }
 
   // Clear previous content to avoid duplication
   containerElement.innerHTML = '';
 
-  // Loop through each project and create an article for it
-  projects.forEach(project => {
-      const article = document.createElement("article");
+  // Ensure the provided project is an object
+  if (typeof project !== "object" || project === null) {
+      console.error("❌ Expected a project object but got:", project);
+      return;
+  }
 
-      // Ensure data integrity and provide fallbacks for missing values
-      const title = project.title || "Untitled Project";
-      const imageSrc = project.image || "default-image.png"; // Placeholder image
-      const imageAlt = project.title || "Project image"; // Use title as alt text
-      const description = project.description || "No description available.";
+  // Create an article element
+  const article = document.createElement("article");
 
-      // Create the heading dynamically
-      const heading = document.createElement(headingLevel);
-      heading.textContent = title;
+  // Ensure data integrity and provide fallbacks for missing values
+  const title = project.title || "Untitled Project";
+  const imageSrc = project.image || "default-image.png"; // Placeholder image
+  const imageAlt = project.title || "Project image"; // Use title as alt text
+  const description = project.description || "No description available.";
 
-      // Populate the article
-      article.appendChild(heading);
-      article.innerHTML += `
-          <img src="${imageSrc}" alt="${imageAlt}">
-          <p>${description}</p>
-      `;
+  // Create the heading dynamically
+  const heading = document.createElement(headingLevel);
+  heading.textContent = title;
 
-      // Append article to the container safely
-      containerElement.appendChild(article);
-  });
+  // Populate the article
+  article.appendChild(heading);
+  article.innerHTML += `
+      <img src="${imageSrc}" alt="${imageAlt}">
+      <p>${description}</p>
+  `;
+
+  // Append article to the container safely
+  containerElement.appendChild(article);
 }
-
-export async function fetchGitHubData(username) {
-  return fetchJSON(`https://api.github.com/users/${username}`);
-}
-
