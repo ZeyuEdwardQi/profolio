@@ -135,6 +135,8 @@ for (let p of pages) {
 
 console.log("Navigation menu setup complete");
 
+console.log("✅ global.js is loaded!");
+
 
 // // Add the theme switcher dropdown dynamically
 // document.body.insertAdjacentHTML(
