@@ -26,3 +26,7 @@ fetchJSON("../lib/projects.json").then(projects => {
         updateProjectCount(projects); // Update count in the title
     }
 });
+
+console.log("✅ projects.js is loaded!");
+console.log("Checking fetchJSON:", fetchJSON);
+console.log("Checking renderProjects:", renderProjects);
