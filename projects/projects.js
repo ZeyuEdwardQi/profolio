@@ -2,6 +2,8 @@ import { fetchJSON, renderProjects } from '../global.js';
 
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
+const projectList = Array.isArray(projects) ? projects : Object.values(projects); // Convert object to array if needed
+renderProjects(projectList, projectsContainer, 'h2');
 
 // renderProjects(projects, projectsContainer, 'h2');
 
