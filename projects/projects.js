@@ -17,6 +17,12 @@ function updateProjectCount(projects) {
 
 // Fetch the JSON and render projects
 fetchJSON("../lib/projects.json").then(projects => {
+    console.log("✅ Checking projects:", projects);  // Debugging line
+    console.log("🔍 Type of projects:", typeof projects); // Check type
+    if (!Array.isArray(projects)) {
+        console.error("❌ Error: projects is NOT an array", projects);
+        return; // Stop execution if projects is not an array
+    }
 
     const container = document.querySelector(".projects");
     if (container) {
