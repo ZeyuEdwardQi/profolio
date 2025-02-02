@@ -227,20 +227,41 @@ document.getElementById("color-scheme-selector").addEventListener("input", (e) =
 });
 
 
+// export async function fetchJSON(url) {
+//   try {
+    
+//       // Fetch the JSON file from the given URL
+//       const response = await fetch(url);
+//       if (!response.ok) {
+//         throw new Error(`Failed to fetch projects: ${response.statusText}`);
+//       }
+
+//       const data = await response.json();
+//       return data; 
+
+
+//   } catch (error) {
+//     console.error('Error fetching or parsing JSON data:', error);
+//   }
+// }
 export async function fetchJSON(url) {
   try {
-      // Fetch the JSON file from the given URL
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Failed to fetch projects: ${response.statusText}`);
       }
 
-      const data = await response.json();
-      return data; 
+      let data = await response.json();
 
+      // Convert an object to an array if necessary
+      if (!Array.isArray(data)) {
+          console.warn("⚠️ projects.json is an object. Converting to an array...");
+          data = Object.values(data);
+      }
 
+      return data;
   } catch (error) {
-    console.error('Error fetching or parsing JSON data:', error);
+      console.error('Error fetching or parsing JSON data:', error);
   }
 }
 

@@ -50,6 +50,21 @@
 // }
 
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
+const projectsContainer = document.querySelector('.projects');
+
+// ✅ Fetch projects and slice the latest 3
+fetchJSON('./lib/projects.json').then(projects => {
+    console.log("✅ Checking projects:", projects); // Debugging
+    console.log("🔍 Type of projects:", typeof projects); 
+
+    if (!Array.isArray(projects)) {
+        console.error("❌ Error: projects is NOT an array", projects);
+        return;
+    }
+
+    const latestProjects = projects.slice(0, 3); // Take first 3 projects
+    renderProjects(latestProjects, projectsContainer, 'h2'); // Render them
+});
 
 // Function to load projects
 async function loadProjects() {
