@@ -8,12 +8,12 @@ const projectsContainer = document.querySelector('.projects');
 // // Select the title element
 const projectsTitle = document.querySelector('.projects-title');
 
-// Function to update the project count
-function updateProjectCount(projects) {
-    if (projectsTitle) {
-        projectsTitle.textContent = `Projects (${projects.length})`;
-    }
-}
+// // Function to update the project count
+// function updateProjectCount(projects) {
+//     if (projectsTitle) {
+//         projectsTitle.textContent = `Projects (${projects.length})`;
+//     }
+// }
 
 // Fetch the JSON and render projects
 fetchJSON("https://github.com/ZeyuEdwardQi/profolio/blob/main/lib/projects.json").then(projects => {
@@ -31,6 +31,13 @@ fetchJSON("https://github.com/ZeyuEdwardQi/profolio/blob/main/lib/projects.json"
         updateProjectCount(projects); // Update count in the title
     }
 });
+
+// Function to update the project count
+function updateProjectCount(projects) {
+    if (projectsTitle) {
+        projectsTitle.textContent = `Projects (${projects.length})`;
+    }
+}
 
 console.log("✅ projects.js is loaded!");
 console.log("Checking fetchJSON:", fetchJSON);
