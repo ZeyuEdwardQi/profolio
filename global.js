@@ -292,6 +292,8 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
       const imageSrc = project.image || "default-image.png"; // Placeholder image
       const imageAlt = project.title || "Project image"; // Use title as alt text
       const description = project.description || "No description available.";
+      const year = project.year ? ` <em>c. ${project.year}</em>` : ""; // Display year if available
+
 
       // Create the heading dynamically
       const heading = document.createElement(headingLevel);
@@ -302,6 +304,7 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
       article.innerHTML += `
           <img src="${imageSrc}" alt="${imageAlt}">
           <p>${description}</p>
+          <p class="project-year">${year}</p>
       `;
 
       // Append article to the container safely
