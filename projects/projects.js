@@ -358,19 +358,19 @@ function updateSelection(i) {
 }
 
 
-// ✅ Make Legend Interactive
-legend.selectAll("li").on("click", function (_, i) {
-  selectedIndex = selectedIndex === i ? -1 : i;  // Toggle selection
+// // ✅ Make Legend Interactive
+// legend.selectAll("li").on("click", function (_, i) {
+//   selectedIndex = selectedIndex === i ? -1 : i;  // Toggle selection
 
-  // ✅ Update Pie Chart Selection
-  svg
-    .selectAll("path")
-    .attr("class", (_, idx) => (idx === selectedIndex ? "selected" : ""));
+//   // ✅ Update Pie Chart Selection
+//   svg
+//     .selectAll("path")
+//     .attr("class", (_, idx) => (idx === selectedIndex ? "selected" : ""));
 
-  // ✅ Update Legend Selection
-  legend
-    .selectAll("li")
-    .attr("class", (_, idx) => (idx === selectedIndex ? "selected" : ""));
-});
+//   // ✅ Update Legend Selection
+//   legend
+//     .selectAll("li")
+//     .attr("class", (_, idx) => (idx === selectedIndex ? "selected" : ""));
+// });
 
 
