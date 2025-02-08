@@ -203,7 +203,77 @@ footer {
 }
 
 #projects-pie-plot {
+  flex: 2;
   max-width: 20em;  /* Limits the size of the SVG */
   margin-block: 2em; /* Adds vertical spacing above and below */
   overflow: visible; /* Ensures parts of the pie chart are not hidden */
+}
+
+ /* Container for pie chart and legend */
+.chart-container {
+  display: flex; /* Aligns items side by side */
+  align-items: center; /* Vertically centers items */
+  gap: 1rem; /* Space between chart & legend */
+  justify-content: center; /* Center in container */
+  margin-top: 2rem; /* Space from top */
+}
+
+/* Ensure the pie chart doesn't shrink */
+/* #projects-pie-plot {
+  flex-shrink: 0; 
+  max-width: 10rem; 
+} */
+
+/* Style the legend */
+.legend {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); /* Auto-fit grid */
+  gap: 0.3rem; /* Space between legend items */
+  list-style: none; /* Remove default bullets */
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  flex-grow: 1; /* Allows legend to expand */
+}
+
+/* Style each legend item */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Style the color swatch */
+.swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 4px;
+  border: 1px solid #888;
+}
+
+/* Apply opacity effect when hovering over a slice */
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+
+  &:is(li) {
+    font-weight: bold;
+    color: var(--color);
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
