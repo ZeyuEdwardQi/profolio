@@ -201,3 +201,9 @@ footer {
 .color-scheme select {
   font: inherit; /* Inherit font styling from parent */
 }
+
+#projects-pie-plot {
+  max-width: 20em;  /* Limits the size of the SVG */
+  margin-block: 2em; /* Adds vertical spacing above and below */
+  overflow: visible; /* Ensures parts of the pie chart are not hidden */
+}
