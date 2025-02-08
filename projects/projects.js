@@ -18,21 +18,23 @@ const projectsTitle = document.querySelector('.projects-title');
 // }
 
 // Fetch the JSON and render projects
-fetchJSON("https://raw.githubusercontent.com/ZeyuEdwardQi/profolio/main/lib/projects.json").then(projects => {
-    console.log("✅ Checking projects:", projects);  // Debugging line
-    console.log("🔍 Type of projects:", typeof projects); // Check type
-    if (!Array.isArray(projects)) {
-        console.error("❌ Error: projects is NOT an array", projects);
-        return; // Stop execution if projects is not an array
-    }
+// let projects = fetchJSON("https://raw.githubusercontent.com/ZeyuEdwardQi/profolio/main/lib/projects.json").then(projects => {
+//     console.log("✅ Checking projects:", projects);  // Debugging line
+//     console.log("🔍 Type of projects:", typeof projects); // Check type
+//     if (!Array.isArray(projects)) {
+//         console.error("❌ Error: projects is NOT an array", projects);
+//         return; // Stop execution if projects is not an array
+//     }
 
-    const container = document.querySelector(".projects");
-    if (container) {
-        container.innerHTML = ""; // Clear previous content
-        projects.forEach(project => renderProjects(project, container));
-        updateProjectCount(projects); // Update count in the title
-    }
-});
+//     const container = document.querySelector(".projects");
+//     if (container) {
+//         container.innerHTML = ""; // Clear previous content
+//         projects.forEach(project => renderProjects(project, container));
+//         updateProjectCount(projects); // Update count in the title
+//     }
+// });
+
+// let projects = await fetchJSON("../lib/projects.json");
 
 // Function to update the project count
 function updateProjectCount(projects) {
