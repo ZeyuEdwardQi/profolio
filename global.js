@@ -68,13 +68,13 @@ const BASE_PATH = "/profolio/";
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Define the pages for the navigation menu
-// const pages = [
-//     { url: '', title: 'Home' },
-//     { url: 'projects/', title: 'Projects' },
-//     { url: 'contact/', title: 'Contact' },
-//     { url: 'cv/', title: 'CV' },
-//     { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
-//   ];
+const pages = [
+    { url: '', title: 'Home' },
+    { url: 'projects/', title: 'Projects' },
+    { url: 'contact/', title: 'Contact' },
+    { url: 'cv/', title: 'CV' },
+    { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
+  ];
 // const pages = [
 //   { url: '../index.html', title: 'Home' },
 //   { url: '../projects/index.html', title: 'Projects' },  // Keep it relative
@@ -82,13 +82,13 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 //   { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' },
 //   { url: '../cv/index.html', title: 'CV' }
 // ];
-const pages = [
-  { url: 'index.html', title: 'Home' },
-  { url: 'profolio/projects/index.html', title: 'Projects' },  // Keep it relative
-  { url: 'profolio/contact/index.html', title: 'Contact' },
-  { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' },
-  { url: 'profolio/cv/index.html', title: 'CV' }
-];
+// const pages = [
+//   { url: 'index.html', title: 'Home' },
+//   { url: 'profolio/projects/index.html', title: 'Projects' },  // Keep it relative
+//   { url: 'profolio/contact/index.html', title: 'Contact' },
+//   { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' },
+//   { url: 'profolio/cv/index.html', title: 'CV' }
+// ];
 
 
 let nav = document.createElement('nav');
