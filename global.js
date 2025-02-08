@@ -303,8 +303,9 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
       article.appendChild(heading);
       article.innerHTML += `
           <img src="${imageSrc}" alt="${imageAlt}">
+          <h4 class="project-year">${year}</h4>
           <p>${description}</p>
-          <p class="project-year">${year}</p>
+          
       `;
 
       // Append article to the container safely

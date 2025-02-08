@@ -90,33 +90,49 @@ async function loadProjects() {
 }
 
 // Function to load GitHub stats
-async function loadGitHubStats() {
-    try {
-        const username = "ZeyuEdwardQi"; // Change to your GitHub username
-        const githubData = await fetchGitHubData(username);
+// async function loadGitHubStats() {
+//     try {
+//         const username = "ZeyuEdwardQi"; // Change to your GitHub username
+//         const githubData = await fetchGitHubData(username);
         
-        if (!githubData) {
-            console.error("⚠️ Error: GitHub data is undefined.");
-            return;
-        }
+//         if (!githubData) {
+//             console.error("⚠️ Error: GitHub data is undefined.");
+//             return;
+//         }
 
-        const profileStats = document.querySelector('#profile-stats');
-        if (profileStats) {
-            profileStats.innerHTML = `
-                <h2>My GitHub Stats</h2>
-                <dl>
-                    <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
-                    <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
-                    <dt>Followers:</dt><dd>${githubData.followers}</dd>
-                    <dt>Following:</dt><dd>${githubData.following}</dd>
-                </dl>
-            `;
-        } else {
-            console.error("⚠️ Error: #profile-stats container not found.");
-        }
-    } catch (error) {
-        console.error("🚨 Error loading GitHub stats:", error);
-    }
+//         const profileStats = document.querySelector('#profile-stats');
+//         if (profileStats) {
+//             profileStats.innerHTML = `
+//                 <h2>My GitHub Stats</h2>
+//                 <dl>
+//                     <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
+//                     <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
+//                     <dt>Followers:</dt><dd>${githubData.followers}</dd>
+//                     <dt>Following:</dt><dd>${githubData.following}</dd>
+//                 </dl>
+//             `;
+//         } else {
+//             console.error("⚠️ Error: #profile-stats container not found.");
+//         }
+//     } catch (error) {
+//         console.error("🚨 Error loading GitHub stats:", error);
+//     }
+// }
+
+const githubData = await fetchGitHubData('ZeyuEdwardQi');
+console.log("Github Data", githubData)
+
+const profileStats = document.querySelector('#profile-stats')
+if (profileStats) {
+    profileStats.innerHTML = `
+        <h2>My GitHub Stats</h2>
+        <dl>
+            <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
+            <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
+            <dt>Followers:</dt><dd>${githubData.followers}</dd>
+            <dt>Following:</dt><dd>${githubData.following}</dd>
+        </dl>
+    `;
 }
 
 // Load data when the page loads
