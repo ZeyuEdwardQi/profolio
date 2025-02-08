@@ -83,7 +83,7 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 //   { url: '../cv/index.html', title: 'CV' }
 // ];
 const pages = [
-  { url: '/index.html', title: 'Home' },
+  { url: 'index.html', title: 'Home' },
   { url: 'profolio/projects/index.html', title: 'Projects' },  // Keep it relative
   { url: 'profolio/contact/index.html', title: 'Contact' },
   { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' },
