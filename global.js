@@ -69,7 +69,7 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Define the pages for the navigation menu
 const pages = [
-    { url: '', title: 'Home' },
+    { url: 'index.html', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact' },
     { url: 'cv/', title: 'CV' },
