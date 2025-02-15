@@ -68,24 +68,24 @@ const BASE_PATH = "/profolio/";
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Define the pages for the navigation menu
-// const pages = [
-//     { url: 'index.html', title: 'Home' },
-//     { url: 'projects/', title: 'Projects' },
-//     { url: 'contact/', title: 'Contact' },
-//     { url: 'cv/', title: 'CV' },
-//     { url: 'meta/', title: 'Meta' },
-//     { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
-//   ];
-
-
 const pages = [
-  { url: '../index.html', title: 'Home' },
-  { url: '../projects/index.html', title: 'Projects' },  // Keep it relative
-  { url: '../contact/index.html', title: 'Contact' },
-  { url: '../cv/index.html', title: 'CV' },
-  { url: '../meta/index.html', title: 'Meta' },
-  { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
-];
+    { url: 'index.html', title: 'Home' },
+    { url: './projects/index.html', title: 'Projects' },
+    { url: './contact/index.html', title: 'Contact' },
+    { url: './cv/index.html', title: 'CV' },
+    { url: './meta/index.html', title: 'Meta' },
+    { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
+  ];
+
+
+// const pages = [
+//   { url: '../index.html', title: 'Home' },
+//   { url: '../projects/index.html', title: 'Projects' },  // Keep it relative
+//   { url: '../contact/index.html', title: 'Contact' },
+//   { url: '../cv/index.html', title: 'CV' },
+//   { url: '../meta/index.html', title: 'Meta' },
+//   { url: 'https://github.com/zeyuedwardqi', title: 'GitHub Profile' }
+// ];
 
 
 // const pages = [
@@ -103,22 +103,24 @@ document.body.prepend(nav);
 
 for (let p of pages) {
     let url = p.url;
+
+    url = !ARE_WE_HOME && !url.startsWith('http') ? '../' + url : url;
   
-    // Prepend BASE_PATH to relative URLs
-    if (!url.startsWith('http')) {
-      url = BASE_PATH + url;
-    }
+    // // Prepend BASE_PATH to relative URLs
+    // if (!url.startsWith('http')) {
+    //   url = BASE_PATH + url;
+    // }
   
-    // Create the <a> element
-    let a = document.createElement('a');
-    a.href = url;
-    a.textContent = p.title;
+    // // Create the <a> element
+    // let a = document.createElement('a');
+    // a.href = url;
+    // a.textContent = p.title;
   
-    // If it's an external link, open in a new tab
-    if (url.startsWith('http')) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
+    // // If it's an external link, open in a new tab
+    // if (url.startsWith('http')) {
+    //   a.setAttribute('target', '_blank');
+    //   a.setAttribute('rel', 'noopener noreferrer');
+    // }
     // a.toggleAttribute('target', a.host !== location.host);
     // a.toggleAttribute('rel', a.host !== location.host && a.target === '_blank');
   
@@ -143,13 +145,21 @@ for (let p of pages) {
 
     // a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
 
-    const fullPath = window.location.pathname.replace(/\/+$/, ""); // Remove trailing slashes
-    const expectedPath = (BASE_PATH + p.url).replace(/\/+$/, ""); // Remove trailing slashes
+    // const fullPath = window.location.pathname.replace(/\/+$/, ""); // Remove trailing slashes
+    // const expectedPath = (BASE_PATH + p.url).replace(/\/+$/, ""); // Remove trailing slashes
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = p.title;
+    nav.append(a);
 
-    a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
+    if (a.host === location.host && a.pathname === location.pathname) {
+      a.classList.add('current');
+    }
+
+    // a.classList.toggle("current", a.host === location.host && fullPath === expectedPath);
   
     // Append the link to the navigation
-    nav.append(a);
+    // nav.append(a);
   }
   
 
