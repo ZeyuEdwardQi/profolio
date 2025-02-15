@@ -315,7 +315,7 @@ function updateTooltipVisibility(isVisible) {
         tooltip.style.visibility = "hidden";
         tooltip.style.opacity = "0";
     }
-    // tooltip.hidden = !isVisible;
+    tooltip.hidden = !isVisible;
 }
 
 function updateTooltipPosition(event) {
