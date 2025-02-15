@@ -383,5 +383,7 @@ dl.info dd {
 
 
 circle.selected {
-  fill: #ff6b6b;
+  stroke: red;
+  stroke-width: 2px;
+  fill: orange !important;
 }
