@@ -333,7 +333,7 @@ function updateTooltipVisibility(isVisible) {
 function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
     const offsetX = 15;
-    const offsetY = 500;
+    const offsetY = 1500;
     tooltip.style.left = `${event.clientX + offsetX}px`;
     tooltip.style.top = `${event.clientY + offsetY}px`;
 }
