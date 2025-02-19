@@ -124,70 +124,6 @@ function displayStats() {
   dl.append("dd").text(mostActiveDay);
 }
 
-
-// async function createScatterplot() {
-//     const width = 1000;
-//     const height = 600;
-//     const svg = d3
-//         .select('#chart')
-//         .append('svg')
-//         .attr('viewBox', `0 0 ${width} ${height}`)
-//         .style('overflow', 'visible');
-
-//     const xScale = d3
-//         .scaleTime()
-//         .domain(d3.extent(commits, (d) => d.datetime))
-//         .range([0, width])
-//         .nice();
-
-//     const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
-
-//     const dots = svg.append('g').attr('class', 'dots');
-
-//     dots
-//         .selectAll('circle')
-//         .data(commits)
-//         .join('circle')
-//         .attr('cx', (d) => xScale(d.datetime))
-//         .attr('cy', (d) => yScale(d.hourFrac))
-//         .attr('r', 5)
-//         .attr('fill', 'steelblue');
-
-
-
-//     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
-
-//     const usableArea = {
-//         top: margin.top,
-//         right: width - margin.right,
-//         bottom: height - margin.bottom,
-//         left: margin.left,
-//         width: width - margin.left - margin.right,
-//         height: height - margin.top - margin.bottom,
-//       };
-      
-//       // Update scales with new ranges
-//       xScale.range([usableArea.left, usableArea.right]);
-//       yScale.range([usableArea.bottom, usableArea.top]);
-    
-//     // Create the axes
-//     const xAxis = d3.axisBottom(xScale);
-//     const yAxis = d3.axisLeft(yScale);
-
-//     // Add X axis
-//     svg
-//         .append('g')
-//         .attr('transform', `translate(0, ${usableArea.bottom})`)
-//         .call(xAxis);
-
-//     // Add Y axis
-//     svg
-//         .append('g')
-//         .attr('transform', `translate(${usableArea.left}, 0)`)
-//         .call(yAxis);
-
-// }
-
 let xScale, yScale;  // ✅ Global variables
 let brushSelection = null;
 
@@ -308,32 +244,13 @@ function updateTooltipContent(commit) {
 
 function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
-    // if (!isVisible) {
-    //     tooltip.style.display = "block";
-    //     tooltip.style.visibility = "visible";
-    //     tooltip.style.opacity = "1";
-    // } else {
-    //     tooltip.style.visibility = "hidden";
-    //     tooltip.style.opacity = "0";
-    // }
     tooltip.hidden = !isVisible;
 }
-
-// function updateTooltipVisibility(isVisible) {
-//     const tooltip = document.getElementById("commit-tooltip");
-//     if (isVisible) {
-//         tooltip.style.opacity = "1";
-//         tooltip.style.visibility = "visible";
-//     } else {
-//         tooltip.style.opacity = "0";
-//         tooltip.style.visibility = "hidden";
-//     }
-// }
 
 function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
     const offsetX = 15;
-    const offsetY = 1500;
+    const offsetY = 700;
     tooltip.style.left = `${event.clientX + offsetX}px`;
     tooltip.style.top = `${event.clientY + offsetY}px`;
 }
@@ -355,27 +272,6 @@ function brushSelector() {
     // d3.select(svg).call(d3.brush().on('start brush end', brushed));
 }
 
-// function brushSelector() {
-//     const svg = d3.select("svg"); // ✅ Correctly selects SVG element
-
-//     const brush = d3.brush()
-//         .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]]) // ✅ Defines brush area properly
-//         .on("start brush end", brushed);
-
-//     svg.append("g")
-//         .attr("class", "brush")
-//         .call(brush)
-//         .lower();  // ✅ Keeps brush behind dots
-// }
-
-
-
-// function brushed(event) {
-//     brushSelection = event.selection;
-//     updateSelection();
-//     updateSelectionCount();  
-//     updateLanguageBreakdown()
-// }
 function brushed(event) {
     brushSelection = event.selection;
     updateSelection();
@@ -384,19 +280,6 @@ function brushed(event) {
 }
 
 
-// function isCommitSelected(commit) {
-//     if (!brushSelection) {
-//         return false;
-//     }
-//     const min = { x: brushSelection[0][0], y: brushSelection[0][1] };
-//     const max = { x: brushSelection[1][0], y: brushSelection[1][1] };
-
-//     // ✅ Convert commit data to pixel positions
-//     const x = xScale(commit.datetime);
-//     const y = yScale(commit.hourFrac);
-
-//     return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
-// }
 function isCommitSelected(commit) {
     if (!brushSelection) {
         return false;
@@ -412,19 +295,6 @@ function isCommitSelected(commit) {
 }
 
 
-// function updateSelection() {
-//   // Update visual state of dots based on selection
-// //   d3.selectAll('circle').classed('selected', (d) => isCommitSelected(d));
-//     d3.selectAll("circle")
-//         .classed("selected", false)  // ✅ Clear previous selection
-//         .classed("selected", (d) => isCommitSelected(d)); 
-// }
-
-// function updateSelection() {
-//     d3.selectAll("circle")
-//         .classed("selected", false)  // ✅ Clear previous selection
-//         .classed("selected", (d) => isCommitSelected(d));  // ✅ Apply new selection
-// }
 function updateSelection() {
     d3.selectAll("circle")
         .classed("selected", false)  // ✅ Clears previous selection
@@ -432,18 +302,6 @@ function updateSelection() {
 }
 
 
-// function updateSelectionCount() {
-//     const selectedCommits = brushSelection
-//       ? commits.filter(isCommitSelected)
-//       : [];
-  
-//     const countElement = document.getElementById('selection-count');
-//     countElement.textContent = `${
-//       selectedCommits.length || 'No'
-//     } commits selected`;
-  
-//     return selectedCommits;
-//   }
 function updateSelectionCount() {
     const selectedCommits = brushSelection
         ? commits.filter(isCommitSelected)
