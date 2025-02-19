@@ -98,24 +98,6 @@ document.getElementById("color-scheme-selector").addEventListener("input", (e) =
     updateTheme(e.target.value);
 });
 
-
-// export async function fetchJSON(url) {
-//   try {
-    
-//       // Fetch the JSON file from the given URL
-//       const response = await fetch(url);
-//       if (!response.ok) {
-//         throw new Error(`Failed to fetch projects: ${response.statusText}`);
-//       }
-
-//       const data = await response.json();
-//       return data; 
-
-
-//   } catch (error) {
-//     console.error('Error fetching or parsing JSON data:', error);
-//   }
-// }
 export async function fetchJSON(url) {
   try {
       const response = await fetch(url);
@@ -188,50 +170,3 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
-
-// export function renderProjects(project, containerElement, headingLevel = "h2") {
-//   // Ensure the container element exists
-//   if (!containerElement || !(containerElement instanceof HTMLElement)) {
-//       console.error("❌ Invalid container element provided", containerElement);
-//       return;
-//   }
-
-//   // Validate heading level (must be h1-h6)
-//   const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
-//   if (!validHeadings.includes(headingLevel)) {
-//       console.warn(`⚠️ Invalid heading level: "${headingLevel}". Defaulting to "h2".`);
-//       headingLevel = "h2";
-//   }
-
-//   // Clear previous content to avoid duplication
-//   containerElement.innerHTML = '';
-
-//   // Ensure the provided project is an object
-//   if (typeof project !== "object" || project === null) {
-//       console.error("❌ Expected a project object but got:", project);
-//       return;
-//   }
-
-//   // Create an article element
-//   const article = document.createElement("article");
-
-//   // Ensure data integrity and provide fallbacks for missing values
-//   const title = project.title || "Untitled Project";
-//   const imageSrc = project.image || "default-image.png"; // Placeholder image
-//   const imageAlt = project.title || "Project image"; // Use title as alt text
-//   const description = project.description || "No description available.";
-
-//   // Create the heading dynamically
-//   const heading = document.createElement(headingLevel);
-//   heading.textContent = title;
-
-//   // Populate the article
-//   article.appendChild(heading);
-//   article.innerHTML += `
-//       <img src="${imageSrc}" alt="${imageAlt}">
-//       <p>${description}</p>
-//   `;
-
-//   // Append article to the container safely
-//   containerElement.appendChild(article);
-// }
