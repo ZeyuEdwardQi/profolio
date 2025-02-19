@@ -221,13 +221,13 @@ async function createScatterplot() {
         .style('overflow', 'visible');
 
     // ✅ Define Scales
-    const xScale = d3
+    xScale = d3
         .scaleTime()
         .domain(d3.extent(commits, (d) => d.datetime))
         .range([usableArea.left, usableArea.right])
         .nice();
 
-    const yScale = d3
+    yScale = d3
     // yScale = d3.scaleLinear() 
         .scaleLinear()
         .domain([24, 0]) // Hours of the day
@@ -308,15 +308,15 @@ function updateTooltipContent(commit) {
 
 function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
-    if (isVisible) {
-        tooltip.style.display = "block";
-        tooltip.style.visibility = "visible";
-        tooltip.style.opacity = "1";
-    } else {
-        tooltip.style.visibility = "hidden";
-        tooltip.style.opacity = "0";
-    }
-    // tooltip.hidden = !isVisible;
+    // if (!isVisible) {
+    //     tooltip.style.display = "block";
+    //     tooltip.style.visibility = "visible";
+    //     tooltip.style.opacity = "1";
+    // } else {
+    //     tooltip.style.visibility = "hidden";
+    //     tooltip.style.opacity = "0";
+    // }
+    tooltip.hidden = !isVisible;
 }
 
 // function updateTooltipVisibility(isVisible) {
@@ -333,7 +333,7 @@ function updateTooltipVisibility(isVisible) {
 function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
     const offsetX = 15;
-    const offsetY = 15;
+    const offsetY = 500;
     tooltip.style.left = `${event.clientX + offsetX}px`;
     tooltip.style.top = `${event.clientY + offsetY}px`;
 }
