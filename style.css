@@ -387,3 +387,12 @@ circle.selected {
   stroke-width: 2px;
   fill: orange !important;
 }
+
+img {
+  width: 100%;          /* Scales image to the width of its container */
+  max-width: 700px;     /* Limits how wide the image can get */
+  height: auto;         /* Maintains aspect ratio */
+  display: block;       /* Removes extra space below the image */
+  margin: 0 auto;       /* Centers the image horizontally */
+  border-radius: 10px;  /* Optional: adds rounded corners */
+}
