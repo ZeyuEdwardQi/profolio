@@ -1,76 +1,57 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" class="home">
 <head>
-    <!-- <script src="global.js" type="module"></script>
-    <script src="index.js" type="module" defer></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- <style>
-
-        :root {
-            --color-accent: oklch(65% 50% 0);
-        }
-        body {
-            max-width: 100ch;
-            margin: 0 auto;
-            padding: 1rem;
-            accent-color: var(--color-accent);
-        }
-
-        nav {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid oklch(80% 3% 200);
-        }
-
-        nav ul, nav ul li {
-            display: contents;
-        }
-
-        nav a {
-            flex: 1;
-            text-decoration: none;
-            color: inherit;
-            text-align: center;
-            padding: 0.5rem;
-
-        }
-
-        nav a:hover {
-            border-bottom-color: var(--color-accent);
-        }
-
-        nav a.current {
-            background-color: var(--color-accent);
-            border-color: var(--color-accent);
-        }
-
-    </style> -->
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects/index.html">Projects</a></li>
-            <li><a href="contact/index.html">Contact</a></li>
-            <li><a href="https://github.com/zeyuedwardqi" target="_blank">GitHub Profile</a></li>
-            <li><a href="cv/index.html">CV</a></li>
-        </ul>
-    </nav> -->
-
     <h1> Zeyu </h1>
     <h2>Latest Projects</h2>
     <div class="projects">
-    <!-- Dynamically added content will appear here -->
+
     </div>
     <p> Hello, I have black hair and black eyes. My favorite food is noodles </p>
 
         <img src="images/arctic-fox_square.jpg" alt="This is an arctic fox. An arctic fox's long, fluffy tail acts like a blanket, keeping the fox warm when it wraps the tail around its body to sleep." width="300">
     <div id="profile-stats"></div>
+    <script src="global.js" type="module"></script>
+    <script src="index.js" type="module"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" class="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>👋 Hi, I'm <span>Zeyu</span></h2>
+            <p>A data enthusiast passionate about visualizing data, building impactful projects, and telling stories through D3.js and Python.</p>
+            <a href="projects/index.html" class="btn-primary">View My Work 🚀</a>
+        </div>
+        <img src="images/arctic-fox_square.jpg" alt="Arctic fox image" class="profile-image">
+    </section>
+    <section class="projects-section">
+        <h2>🚀 Latest Projects</h2>
+        <div class="projects">
+            <!-- Dynamically added content will appear here -->
+        </div>
+    </section>
+    <section class="about-me">
+        <h2>🌟 About Me</h2>
+        <p>Hello, I have black hair and black eyes. My favorite food is noodles. I enjoy working on projects that involve interactive data visualization and exploring complex data sets using Python and D3.js.</p>
+    </section>
+    <div id="profile-stats"></div>
+    <footer>
+        <p>Built with ❤️ by Zeyu | <a href="https://github.com/zeyuedwardqi" target="_blank">GitHub</a> | © 2024</p>
+    </footer>
     <script src="global.js" type="module"></script>
     <script src="index.js" type="module"></script>
 </body>
