@@ -2,7 +2,7 @@
     {
         "title": "Bikewatching",
         "year": 2024,
-        "image": "../images/GeospacialVisualization.png",
+        "image": "https://drive.google.com/thumbnail?id=1oi_FMmEbyL2PsFnJfA1-saaHKZWDmfbb",
         "description": "This project visualizes Bluebikes traffic data in the Boston metropolitan area using Mapbox GL JS and D3.js. The interactive map displays bike stations, bike lanes, and traffic patterns across different times of the day. Each station is represented by a circle whose size and color provide meaningful insights into traffic volume and flow direction."
     },
     {
