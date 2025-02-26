@@ -1,11 +1,4 @@
 
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-
-  
-
-
 :root {
     --color-accent: oklch(65% 50% 0);
     --border-color: oklch(50% 10% 200 / 40%);
@@ -395,4 +388,22 @@ img {
   display: block;       /* Removes extra space below the image */
   margin: 0 auto;       /* Centers the image horizontally */
   border-radius: 10px;  /* Optional: adds rounded corners */
+}
+
+.profile-stats {
+  /* Step 4.2 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  gap: 1em;
+
+  /* Step 4.3 */
+  article {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row-end: span 3;
+
+      h2 {
+          margin: 0;
+      }
+  }
 }
