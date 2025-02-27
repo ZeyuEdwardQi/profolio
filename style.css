@@ -407,3 +407,17 @@ img {
       }
   }
 }
+
+.project-link {
+  white-space: nowrap;  /* ✅ Keeps "View Project" on one line */
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #f0f0f0;
+}
