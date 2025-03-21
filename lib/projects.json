@@ -1,5 +1,12 @@
 [
     {
+        "title": "Life Expentency",
+        "year": 2025,
+        "image": "https://drive.google.com/thumbnail?id=14UQpBrnqv4TKBggB_lONoA9XwY_m834K",
+        "description": "This study analyzes the main factors influencing life expectancy across different countries and continents using statistical models. The analysis highlights economic capacity and health infrastructure as the most significant determinants of life expectancy, providing insights into potential policy measures for global health improvement. Various regression techniques, including linear, LASSO, and KNN, were used to model and predict life expectancy trends effectively.",
+        "link": "https://github.com/ZeyuEdwardQi/Life-Expectancy"
+    },
+    {
         "title": "Bikewatching",
         "year": 2025,
         "image": "https://drive.google.com/thumbnail?id=1oi_FMmEbyL2PsFnJfA1-saaHKZWDmfbb",
