@@ -382,7 +382,7 @@ circle.selected {
 }
 
 img {
-  width: 10%;          /* Scales image to the width of its container */
+  width: 25%;          /* Scales image to the width of its container */
   max-width: 70px;     /* Limits how wide the image can get */
   height: auto;         /* Maintains aspect ratio */
   display: block;       /* Removes extra space below the image */
