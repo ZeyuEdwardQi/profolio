@@ -421,3 +421,22 @@ img {
 .project-link:hover {
   background-color: #f0f0f0;
 }
+
+
+.hero-header {
+  margin-bottom: 1rem;
+}
+
+.profile-image {
+  max-width: 200px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-separator {
+  width: 60%;
+  margin: 1.5rem auto;
+  border: none;
+  border-top: 2px solid #ccc;
+}
