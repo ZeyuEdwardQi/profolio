@@ -3,48 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeyu | Data Scientist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        accent: '#d97706', // Amber-600, a nice data-viz contrast color
-                        canvas: '#fdfbf7', // A warm, paper-like off-white
-                        'canvas-dark': '#1c1917', // Stone-900
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        h1, h2, h3, blockquote {
-            font-family: 'Merriweather', serif;
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
-  }
-}
-</script>
+    <title>Your Name | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-canvas text-stone-800 dark:bg-canvas-dark dark:text-stone-200 transition-colors duration-300">
-    <div id="root"></div>
+<body>
+    <header>
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Zeyu (Edward)<br>Qi<span class="wave">👋</span></h1>
+                <p class="intro">
+                    I’m a fourth-year <strong>Data Science and Biology</strong> student at UC San Diego (Class of ’26).
+                    I thrive on turning complex data into real-world solutions. From fine-tuning transformer models to building end-to-end prediction pipelines, 
+                    I bridge the gap between messy datasets and actionable insights.
+                </p>
+                <p class="bio">
+                    In and outside classes, I've collaborated with peers and 
+                    startups to deliver exceptional results. I'm passionate about clean code, 
+                    elegant design, and solving complex problems.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Featured Work</h2>
+            <div class="projects-grid">
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Multimodal Rating Prediction with Spatial Features</h3>
+                        <p>Developed a multimodal rating prediction model using Ridge regression to forecast user ratings on Google Local reviews, combining text embeddings from review content, business metadata, and spatial density features. 
+                            Achieved 10-15% RMSE improvement over baseline models by integrating these complementary data sources, demonstrating that simple linear approaches can effectively handle complex multimodal data.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>LLM Evaluation</h3>
+                        <p>automated lecture-summarization pipeline that generates summaries using an LLM, 
+                            evaluates them against detailed rubrics, and iteratively improves via LLM-as-judge feedback loops.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Virtual Cell Challenge</h3>
+                        <p>Competed in the Virtual Cell Challenge by implementing the GEARS (Graph-based Entity-Aware Representation System) 
+                            method to predict single-cell gene expression responses to genetic perturbations across 18,080 genes. 
+                            Trained a graph neural network model on 221,273 cells with CRISPR perturbations, generating synthetic perturbed cell populations for validation set submission while incorporating control cells from the training data.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Project Mitotic Wave</h3>
+                        <p>Investigated mitotic wave synchronization in starfish embryos using light-sheet microscopy, 
+                            capturing 10+ hour time-lapse videos of embryogenesis from 32-cell to 2000-cell stages with fluorescent membrane staining. 
+                            Developed image analysis pipelines for nucleus detection and tracking using morphological operations (top-hat transform, Otsu thresholding) and TrackMate software to extract spatiotemporal patterns of coordinated cell divisions across the developing embryo.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>N2V</h3>
+                        <p>Investigated mitotic wave synchronization in starfish embryos using light-sheet microscopy, developing a label-free self-supervised Noise2Void deep learning pipeline for denoising time-lapse embryogenesis videos (T×C×Y×X) with ROI-aware processing and automated quality assessment. 
+                            Implemented image analysis workflows combining morphological operations (top-hat transform, Otsu thresholding) and TrackMate tracking to extract spatiotemporal patterns of coordinated cell divisions, significantly improving data quality (higher PSNR/SSIM) and reducing manual analysis time.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Life Expectancy</h3>
+                        <p>This study analyzes the main factors influencing life expectancy across different countries and continents using statistical models. 
+                            The analysis highlights economic capacity and health infrastructure as the most significant determinants of life expectancy, providing insights into potential policy measures for global health improvement. 
+                            Various regression techniques, including linear, LASSO, and KNN, were used to model and predict life expectancy trends effectively.</p>
+                        <a href="https://github.com/ZeyuEdwardQi/Life-Expectancy" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Bikewatching</h3>
+                        <p>This project visualizes Bluebikes traffic data in the Boston metropolitan area using Mapbox GL JS and D3.js. 
+                            The interactive map displays bike stations, bike lanes, and traffic patterns across different times of the day. 
+                            Each station is represented by a circle whose size and color provide meaningful insights into traffic volume and flow direction.</p>
+                        <a href="https://zeyuedwardqi.github.io/bikewatching/" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>League of Legends</h3>
+                        <p>The project includes various parts of analysis, starting from exploratory data analysis to hypothesis testing, creation of baseline and final models, and concluding with fairness analysis. 
+                            The primary focus of the project is to investigate influence of gold metrics in League of Legends in 2018 by evaluating matches and impact on match statistics and outcomes.</p>
+                        <a href="https://zeyuedwardqi.github.io/League-of-Legends-Project/" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Financial Distress Paper</h3>
+                        <p>This paper is a survey on the efficiency and financial distress of bankrupt institutions. 
+                            This paper is divided into three parts: theoretical summary, empirical literature summary and discussion. 
+                            A total of 11 papers on bankruptcy and financial distress are extracted and summarized, and the most important papers for this paper are discussed and selected.</p>
+                        <a href="https://www.atlantis-press.com/proceedings/icedbc-23/125991342" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-reveal">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Occupation of Japan</h3>
+                        <p>This paper examines the post-World War II Allied occupation of Japan, focusing on political, economic, and social reforms. 
+                            It highlights key changes such as the new constitution, land redistribution, and educational restructuring, while analyzing the challenges of economic recovery and political stability. 
+                            The paper concludes by discussing how these reforms shaped Japan's emergence as a peaceful and prosperous nation.</p>
+                        <a href="https://www.amazon.com/dp/B09F1G1HBV?ie=UTF8&*entries*=0&viewID=&*Version*=1" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 class="footer-title">Let's Work Together</h2>
+            <p>Have a project in mind? Let's create something amazing.</p>
+            <div class="social-links">
+                <a href="mailto:edwardqi0912@email.com">Email</a>
+                <a href="https://www.linkedin.com/in/qi-zeyu">LinkedIn</a>
+                <a href="https://github.com/ZeyuEdwardQi">GitHub</a>
+            </div>
+            <p class="copyright">&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
